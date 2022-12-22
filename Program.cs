@@ -2,6 +2,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<PublicationTracking.Data.PublicationContext>();
+builder.Services.AddTransient<PublicationTracking.Services.PublicationServices>();
 
 var app = builder.Build();
 
