@@ -11,7 +11,6 @@ public class PublicationServices
     public int GetPublicationCount(string publicationNumberBase)
     {
         var pubs = _context.Publications.Where(p => p.DocumentId.StartsWith(publicationNumberBase));
-        return 2;
-        //return pubs.Count();
+        return pubs.Count();
     }
 }

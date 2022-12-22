@@ -45,7 +45,7 @@
         </div>
         <div class="mb-3 col">
             <label>What language is the document written in, if not English?</label>
-            <select asp-items="@Model.Languages" asp-for="@Model.Publication.Language" class="form-select" id="languageSelect" aria-label="What language is the document written in, if not English?"></select>
+            <select asp-items="@Html.GetEnumSelectList<Data.Language>()" asp-for="@Model.Publication.Language" class="form-select" id="languageSelect" aria-label="What language is the document written in, if not English?"></select>
         </div>
     </div>
     <div class="row">
@@ -115,5 +115,4 @@
     <div class="mb-3">
         <input type="submit" class="btn btn-primary"></input>
     </div>
-
 }

@@ -20,7 +20,7 @@ public class Publication
 
     [Display(Name = "Publication URL")]
     public string Url { get; set; }
-    public string Language { get; set; }
+    public Data.Language? Language { get; set; }
     public DateTime? DateRequested { get; set; }
 
     [Required]

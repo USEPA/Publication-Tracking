@@ -6,5 +6,8 @@ namespace PublicationTracking.Pages;
 
 public class DetailsModel : PageModel
 {
-
+    public void OnGet(string documentId)
+    {
+        ViewData["PublicationId"] = documentId;
+    }
 }
