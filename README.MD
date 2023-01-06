@@ -229,10 +229,6 @@ Program: Science Advisory Board 12x
 Program: Small and Disadvantaged Business Utilization 18x
 180 Small and Disadvantaged Business Utilization
 
-
-
-
-
 ### TABLE 2 - Alpha Descriptor: (200-B-96-001)
 
 Code    | Descriptor
@@ -256,3 +252,15 @@ V       | Video
 X       | Internal Use Only (not intended for public viewing)
 Y       | Revised – Republished Version (original document number & all subsequent revised publication numbers should be printed in document with the latest number on the cover)
 Z       | Federal Register
+
+
+### Next Steps
+- Casey to add the remaining Responsible Orginizations to the list.                 Due 1/6
+- Casey to run an import of the old data into this data.                            Due 1/13
+- Casey to develop a database page to look at and review existing database items.   Due 1/6
+- EPA to create database where we can import this data into.                        Due 1/13
+- EPA to prep a machine with .net 6 installed for deployment.                       Due 1/13
+- EPA to work with Casey to do a test deployment.                                   Due 1/20
+- EPA to test application                                                           Due 2/3
+- Casey to update application from test results.                                    Due 2/28
+- EPA and Casey to deploy application into production.                              Due 2/28

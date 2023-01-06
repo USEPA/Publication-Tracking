@@ -19,7 +19,7 @@ public class Publication
     public string Comment { get; set; }
 
     [Display(Name = "Publication URL")]
-    public string Url { get; set; }
+    public string? Url { get; set; }
     public Data.Language? Language { get; set; }
     public DateTime? DateRequested { get; set; }
 

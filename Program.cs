@@ -1,10 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<PublicationTracking.Data.PublicationContext>();
+builder.Services.AddDbContext<PublicationTracking.Data.PublicationContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("PublicationContext")));
 builder.Services.AddTransient<PublicationTracking.Services.PublicationServices>();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
