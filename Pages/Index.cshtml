@@ -39,7 +39,7 @@
             </div>
         
             <div class="form-check">
-                <input asp-for="@Model.Publication.IsInternalOnly" class="form-check-input" type="radio" id="distributionRadioNo" value="false" checked>
+                <input asp-for="@Model.Publication.IsInternalOnly" class="form-check-input" type="radio" id="distributionRadioNo" value="false">
                 <label class="form-check-label" for="distributionRadioNo">No</label>
             </div>
         </div>
@@ -57,14 +57,14 @@
             </div>
         
             <div class="form-check">
-                <input asp-for="@Model.Publication.IsPrinted" class="form-check-input" type="radio" id="PrintedRadioNo" value="false" checked>
+                <input asp-for="@Model.Publication.IsPrinted" class="form-check-input" type="radio" id="PrintedRadioNo" value="false">
                 <label class="form-check-label" for="PrintedRadioNo">No</label>
             </div>
         </div>
         <div class="mb-3 col">
             <label>Will this be available in digital format?</label>
             <div class="form-check">
-                <input asp-for="@Model.Publication.IsDigital" class="form-check-input" type="radio" value="true" id="DigitalRadioYes" checked>
+                <input asp-for="@Model.Publication.IsDigital" class="form-check-input" type="radio" value="true" id="DigitalRadioYes">
                 <label class="form-check-label" for="DigitalRadioYes">Yes</label>
             </div>
         
@@ -84,7 +84,7 @@
         <div class="mb-3 col">
             <label>Is this publication an original, or a revision?</label>
             <div class="form-check">
-                <input asp-for="@Model.Publication.IsOriginal" class="form-check-input" type="radio" id="OriginalRadioOriginal" value="true" checked></input>
+                <input asp-for="@Model.Publication.IsOriginal" class="form-check-input" type="radio" id="OriginalRadioOriginal" value="true"></input>
                 <label class="form-check-label" for="DigitalRadioYes">Original</label>
             </div>
         

@@ -24,7 +24,7 @@ public class Publication
     public DateTime? DateRequested { get; set; }
 
     [Required]
-    [Display(Name = "Requestor Name", Prompt = "Dugnutt, Bobson")]
+    [Display(Name = "Requestor Name")]
     public string? PointOfContactName { get; set; }
     public string? PointOfContactOrganization { get; set; }
 
@@ -33,7 +33,7 @@ public class Publication
     public string PointOfContactPhoneNumber { get; set; }
 
     [EmailAddress]
-    [Display(Name = "Email Address", Prompt = "Bobson.Dugnutt@example.com")]
+    [Display(Name = "Email Address")]
     public string? PointOfContactEmail { get; set; }
     public string? PointOfContactMailCode { get; set; }
     public bool? IsOriginal { get; set; }
