@@ -31,8 +31,8 @@ public class DatabaseModel : PageModel
     {
         var nextPage = _context.Publications
             .OrderByDescending(p => p.DateEntered)
-            .Where(p => p.DateEntered <= lastDate)
-            .Take(25)
+            //.Where(p => p.DateEntered <= lastDate)
+            //.Take(25)
             .Include(p => p.AlphaDescriptor)
             .Include(p => p.ResponsibleCode)
             .ToList();

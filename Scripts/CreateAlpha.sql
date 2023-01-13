@@ -18,7 +18,7 @@ INSERT INTO [dbo].[AlphaDescriptors]([Code],[Description]) VALUES('S', 'Summary,
 INSERT INTO [dbo].[AlphaDescriptors]([Code],[Description]) VALUES('U', 'Audio')
 INSERT INTO [dbo].[AlphaDescriptors]([Code],[Description]) VALUES('V', 'Video')
 INSERT INTO [dbo].[AlphaDescriptors]([Code],[Description]) VALUES('X', 'Internal Use Only (not intended for public viewing)')
-INSERT INTO [dbo].[AlphaDescriptors]([Code],[Description]) VALUES('Y', 'Revised – Republished Version')
+INSERT INTO [dbo].[AlphaDescriptors]([Code],[Description]) VALUES('Y', 'Revised Republished Version')
 INSERT INTO [dbo].[AlphaDescriptors]([Code],[Description]) VALUES('Z', 'Federal Register')
 GO
 

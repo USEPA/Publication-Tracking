@@ -7,8 +7,8 @@ namespace PublicationTracking.Pages;
 public class PublicationModel : PageModel
 {
 
-    public void OnGet(string documentId)
+    public void OnGet(string id)
     {
-        ViewData["PublicationId"] = documentId;
+        ViewData["PublicationId"] = id;
     }
 }
