@@ -10,8 +10,8 @@ public enum Language
     Chinese,
     French,
     German,
-    [Display(Name="Hatian Creole")]
-    Hatian_Creole,
+    [Display(Name="Haitian Creole")]
+    Haitian_Creole,
     Hindi,
     Hmong,
     Italian,
@@ -21,6 +21,8 @@ public enum Language
     Polish,
     Portuguese,
     Russian,
+    [Display(Name="Simplified Chinese")]
+    Simplified_Chinese,
     Spanish,
     Tagalog,
     Thai,
