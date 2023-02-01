@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace PublicationTracking.Pages;
 
@@ -9,33 +10,28 @@ public class DatabaseModel : PageModel
     private readonly ILogger<DatabaseModel> _logger;
     private Data.PublicationContext _context;
 
-    public List<Data.Publication> _publicationList { get; set; }
+    public IPagedList<Data.Publication> _publicationList { get; set; }
+    public int _page { get; set; }
+    public static int totalPublications;
 
     public DatabaseModel(ILogger<DatabaseModel> logger, Data.PublicationContext context)
     {
         _logger = logger;
         _context = context;
-        _publicationList = new List<Data.Publication>();
+        totalPublications = _context.Publications.Count();
     }
 
-    public void OnGet()
+    public void OnGet(string? pageNumber)
     {
-        var _lastDate = DateTime.Now;
-        var list = GetPublicationsFromDate(_lastDate);
+        _page = int.Parse(pageNumber ?? "1");
+
+        var list = _context.Publications
+            .OrderByDescending(p => p.DateEntered)
+            .Include(p => p.AlphaDescriptor)
+            .Include(p => p.ResponsibleCode)
+            .ToPagedList(_page, 5);
         Console.WriteLine(list.Count());
         _publicationList = list;
 
-    }
-
-    private List<Data.Publication> GetPublicationsFromDate(DateTime lastDate)
-    {
-        var nextPage = _context.Publications
-            .OrderByDescending(p => p.DateEntered)
-            //.Where(p => p.DateEntered <= lastDate)
-            //.Take(25)
-            .Include(p => p.AlphaDescriptor)
-            .Include(p => p.ResponsibleCode)
-            .ToList();
-        return nextPage;
     }
 }

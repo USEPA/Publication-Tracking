@@ -39,7 +39,7 @@
             </div>
         
             <div class="form-check">
-                <input asp-for="@Model.Publication.IsInternalOnly" class="form-check-input" type="radio" id="distributionRadioNo" value="false">
+                <input asp-for="@Model.Publication.IsInternalOnly" class="form-check-input" type="radio" id="distributionRadioNo" value="false" checked>
                 <label class="form-check-label" for="distributionRadioNo">No</label>
             </div>
         </div>
@@ -57,7 +57,7 @@
             </div>
         
             <div class="form-check">
-                <input asp-for="@Model.Publication.IsPrinted" class="form-check-input" type="radio" id="PrintedRadioNo" value="false">
+                <input asp-for="@Model.Publication.IsPrinted" class="form-check-input" type="radio" id="PrintedRadioNo" value="false" checked>
                 <label class="form-check-label" for="PrintedRadioNo">No</label>
             </div>
         </div>
@@ -69,7 +69,7 @@
             </div>
         
             <div class="form-check">
-                <input asp-for="@Model.Publication.IsDigital" class="form-check-input" type="radio" id="DigitalRadioNo" value="false">
+                <input asp-for="@Model.Publication.IsDigital" class="form-check-input" type="radio" id="DigitalRadioNo" value="false" checked>
                 <label class="form-check-label" for="PrintedRadioNo">No</label>
             </div>
         </div>
@@ -84,7 +84,7 @@
         <div class="mb-3 col">
             <label>Is this publication an original, or a revision?</label>
             <div class="form-check">
-                <input asp-for="@Model.Publication.IsOriginal" class="form-check-input" type="radio" id="OriginalRadioOriginal" value="true"></input>
+                <input asp-for="@Model.Publication.IsOriginal" class="form-check-input" type="radio" id="OriginalRadioOriginal" value="true" checked></input>
                 <label class="form-check-label" for="DigitalRadioYes">Original</label>
             </div>
         

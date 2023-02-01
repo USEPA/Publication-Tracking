@@ -1,10 +1,11 @@
 @page
 @model DatabaseModel
+@using X.PagedList.Mvc;
 @{
     ViewData["Title"] = "Database";
 }
 <div class="text-center" style="padding-bottom: 30px;">
-    <div class="alert alert-secondary" role="alert">There are @Model._publicationList.Count publications in the database.</div>
+    <div class="alert alert-secondary" role="alert">There are @DatabaseModel.totalPublications publications in the database.</div>
 </div>
 
 <table class="table">
@@ -30,20 +31,13 @@
     }
   </tbody>
 </table>
-<!--<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>-->
+
+@Html.PagedListPager((IPagedList)Model._publicationList, page => Url.Action(null, new {pageNumber = page}),
+  new X.PagedList.Web.Common.PagedListRenderOptions()
+  {
+    LiElementClasses = new string[] { "page-item" },
+    PageClasses = new string[] { "page-link" },
+    Display = PagedListDisplayMode.IfNeeded
+
+  }
+)

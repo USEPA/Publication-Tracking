@@ -16,7 +16,7 @@ public class Publication
     public string Title { get; set; }
 
     [Display(Name = "Additional Comments")]
-    public string Comment { get; set; }
+    public string? Comment { get; set; }
 
     [Display(Name = "Publication URL")]
     public string? Url { get; set; }
@@ -28,10 +28,12 @@ public class Publication
     public string? PointOfContactName { get; set; }
     public string? PointOfContactOrganization { get; set; }
 
+    [Required]
     [Phone]
     [Display(Name = "Requestor Phone Number")]
     public string PointOfContactPhoneNumber { get; set; }
 
+    [Required]
     [EmailAddress]
     [Display(Name = "Email Address")]
     public string? PointOfContactEmail { get; set; }
