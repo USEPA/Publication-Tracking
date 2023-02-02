@@ -1,5 +1,187 @@
 @page
 @model PublicationModel
 <div class="text-center" style="padding-bottom: 30px;">
-    <div class="alert alert-secondary" role="alert"><strong>@ViewData["PublicationId"]</strong></div>
+    <div class="alert alert-secondary" role="alert"><strong>@Model._publication.DocumentId</strong></div>
+</div>
+<div class="list-group">
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.Title"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.Title</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.PointOfContactName"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.PointOfContactName</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.PointOfContactOrganization"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.PointOfContactOrganization</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.PointOfContactEmail"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.PointOfContactEmail</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.PointOfContactPhoneNumber"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.PointOfContactPhoneNumber</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.PointOfContactMailCode"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.PointOfContactMailCode</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.ResponsibleCode"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.ResponsibleCode.Code - @Model._publication.ResponsibleCode.Organization</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.AlphaDescriptor"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.AlphaDescriptor.Code - @Model._publication.AlphaDescriptor.Description</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.Url"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.Url</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.Language"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.Language</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.DateRequested"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.DateRequested</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.ExpectedPublicationDate"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.ExpectedPublicationDate</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.DateEntered"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.DateEntered</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <p class="mb-1"><label asp-for="@Model._publication.IsOriginal"></label></p>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@Model._publication.IsOriginal</h5>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 col">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <p class="mb-1"><label asp-for="@Model._publication.OriginalId"></label></p>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@(Model._publication.OriginalId == null ? "N/A" : Model._publication.OriginalId)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 col">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <p class="mb-1"><label asp-for="@Model._publication.Revision"></label></p>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@(Model._publication.Revision == null ? "N/A" : Model._publication.Revision)</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <p class="mb-1"><label asp-for="@Model._publication.Year"></label></p>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@Model._publication.Year</h5>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 col">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <p class="mb-1"><label asp-for="@Model._publication.SequenceNumber"></label></p>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@(Model._publication.SequenceNumber == null ? "N/A" : Model._publication.SequenceNumber)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 col">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <p class="mb-1"><label asp-for="@Model._publication.Volume"></label></p>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@(Model._publication.Volume == null ? "N/A" : Model._publication.Volume)</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <p class="mb-1"><label asp-for="@Model._publication.IsDigital"></label></p>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@Model._publication.IsDigital</h5>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 col">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <p class="mb-1"><label asp-for="@Model._publication.IsPrinted"></label></p>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@Model._publication.IsPrinted</h5>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 col">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <p class="mb-1"><label asp-for="@Model._publication.IsInternalOnly"></label></p>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@Model._publication.IsInternalOnly</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <p class="mb-1"><label asp-for="@Model._publication.EnteredBy"></label></p>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@(Model._publication.EnteredBy == null ? "N/A" : Model._publication.EnteredBy)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 col">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <p class="mb-1"><label asp-for="@Model._publication.DateLastModified"></label></p>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@Model._publication.DateLastModified</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.Comment"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.Comment</h5>
+        </div>
+    </div>
 </div>

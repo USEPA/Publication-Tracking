@@ -26,6 +26,7 @@ public class Publication
     [Required]
     [Display(Name = "Requestor Name")]
     public string? PointOfContactName { get; set; }
+    [Display(Name = "Requestor Orginization")]
     public string? PointOfContactOrganization { get; set; }
 
     [Required]
@@ -42,7 +43,8 @@ public class Publication
     public bool? IsDigital { get; set; }
     public bool? IsPrinted { get; set; }
     public bool? IsInternalOnly { get; set; }
-    public string? PointOfContactOrganizationId { get; set;}
+    [Display(Name = "Original Id")]
+    public string? OriginalId { get; set;}
     public string? Revision { get; set; }
 
     [Display(Name = "When will the document be available?")]

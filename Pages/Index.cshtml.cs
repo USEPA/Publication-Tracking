@@ -36,6 +36,12 @@ public class IndexModel : PageModel
         _logger.LogInformation("Adding a new publication!");
         var form = Request.Form;
 
+        // Quick note. If the publication is an original, we don't need the original id.
+        if (Publication.IsOriginal == true)
+        {
+            Publication.OriginalId = null;
+        }
+
         // Now that the form is filled out, we can generate a publication Id.
         // In order to generate a publication Id, we need to combine some of the fields.
         // Responsible Code + Alpha Descriptor + 2 Digit Year of Expected Publication Date + Count
