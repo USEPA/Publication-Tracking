@@ -1,7 +1,7 @@
 @page
 @model PublicationModel
 <div class="text-center" style="padding-bottom: 30px;">
-    <div class="alert alert-secondary" role="alert"><strong>@Model._publication.DocumentId</strong></div>
+    <div class="alert alert-secondary" role="alert"><h5 class="mb-1">@Model._publication.DocumentId</h5></div>
 </div>
 <div class="list-group">
     <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -82,100 +82,71 @@
             <h5 class="mb-1">@Model._publication.DateEntered</h5>
         </div>
     </div>
-    <div class="row">
-        <div class="mb-3 col">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                <p class="mb-1"><label asp-for="@Model._publication.IsOriginal"></label></p>
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@Model._publication.IsOriginal</h5>
-                </div>
-            </div>
-        </div>
-        <div class="mb-3 col">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                <p class="mb-1"><label asp-for="@Model._publication.OriginalId"></label></p>
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@(Model._publication.OriginalId == null ? "N/A" : Model._publication.OriginalId)</h5>
-                </div>
-            </div>
-        </div>
-        <div class="mb-3 col">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                <p class="mb-1"><label asp-for="@Model._publication.Revision"></label></p>
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@(Model._publication.Revision == null ? "N/A" : Model._publication.Revision)</h5>
-                </div>
-            </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.IsOriginal"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.IsOriginal</h5>
         </div>
     </div>
-    <div class="row">
-        <div class="mb-3 col">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                <p class="mb-1"><label asp-for="@Model._publication.Year"></label></p>
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@Model._publication.Year</h5>
-                </div>
-            </div>
-        </div>
-        <div class="mb-3 col">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                <p class="mb-1"><label asp-for="@Model._publication.SequenceNumber"></label></p>
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@(Model._publication.SequenceNumber == null ? "N/A" : Model._publication.SequenceNumber)</h5>
-                </div>
-            </div>
-        </div>
-        <div class="mb-3 col">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                <p class="mb-1"><label asp-for="@Model._publication.Volume"></label></p>
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@(Model._publication.Volume == null ? "N/A" : Model._publication.Volume)</h5>
-                </div>
-            </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.OriginalId"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@(Model._publication.OriginalId == null ? "N/A" : Model._publication.OriginalId)</h5>
         </div>
     </div>
-    <div class="row">
-        <div class="mb-3 col">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                <p class="mb-1"><label asp-for="@Model._publication.IsDigital"></label></p>
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@Model._publication.IsDigital</h5>
-                </div>
-            </div>
-        </div>
-        <div class="mb-3 col">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                <p class="mb-1"><label asp-for="@Model._publication.IsPrinted"></label></p>
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@Model._publication.IsPrinted</h5>
-                </div>
-            </div>
-        </div>
-        <div class="mb-3 col">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                <p class="mb-1"><label asp-for="@Model._publication.IsInternalOnly"></label></p>
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@Model._publication.IsInternalOnly</h5>
-                </div>
-            </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.Revision"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@(Model._publication.Revision == null ? "N/A" : Model._publication.Revision)</h5>
         </div>
     </div>
-    <div class="row">
-        <div class="mb-3 col">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                <p class="mb-1"><label asp-for="@Model._publication.EnteredBy"></label></p>
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@(Model._publication.EnteredBy == null ? "N/A" : Model._publication.EnteredBy)</h5>
-                </div>
-            </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.Year"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.Year</h5>
         </div>
-        <div class="mb-3 col">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                <p class="mb-1"><label asp-for="@Model._publication.DateLastModified"></label></p>
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@Model._publication.DateLastModified</h5>
-                </div>
-            </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.SequenceNumber"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@(Model._publication.SequenceNumber == null ? "N/A" : Model._publication.SequenceNumber)</h5>
+        </div>
+    </div>
+    <div class="mb-3 col">
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.Volume"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@(Model._publication.Volume == null ? "N/A" : Model._publication.Volume)</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.IsDigital"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.IsDigital</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.IsPrinted"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.IsPrinted</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.IsInternalOnly"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.IsInternalOnly</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.EnteredBy"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@(Model._publication.EnteredBy == null ? "N/A" : Model._publication.EnteredBy)</h5>
+        </div>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1"><label asp-for="@Model._publication.DateLastModified"></label></p>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">@Model._publication.DateLastModified</h5>
         </div>
     </div>
     <div class="list-group-item list-group-item-action flex-column align-items-start">

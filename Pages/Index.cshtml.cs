@@ -28,7 +28,7 @@ public class IndexModel : PageModel
         Publication.ExpectedPublicationDate = DateTime.Now;
 
         AlphaDescriptors = _context.AlphaDescriptors.Select(a => new SelectListItem { Value = a.Code, Text = $"{a.Code} - {a.Description}" }).ToList();
-        ResponsibleCodes = _context.ResponsibleCodes.Select(r => new SelectListItem { Value = r.Code, Text = $"{r.Code} - {r.Organization}" }).ToList();
+        ResponsibleCodes = _context.ResponsibleCodes.Where(r => r.IsValid == true).Select(r => new SelectListItem { Value = r.Code, Text = $"{r.Code} - {r.Organization}" }).ToList();
     }
 
     public IActionResult OnPost()

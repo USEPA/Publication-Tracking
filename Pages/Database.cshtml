@@ -1,43 +1,26 @@
 @page
 @model DatabaseModel
-@using X.PagedList.Mvc;
+
 @{
     ViewData["Title"] = "Database";
 }
 <div class="text-center" style="padding-bottom: 30px;">
     <div class="alert alert-secondary" role="alert">There are @DatabaseModel.totalPublications publications in the database.</div>
 </div>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">DocumentId</th>
-      <th>Title</th>
-      <th>Responsible Code</th>
-      <th>Alpha Descriptor</th>
-      <th>Date Requested</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach (var pub in Model._publicationList)
+<div>
+  @(Html
+    .Grid(Model._publicationListQ)
+    .Build(columns =>
     {
-        <tr>
-            <th scope="row"><a href="~/Publication?id=@pub.DocumentId">@pub.DocumentId</a></th>
-            <td>@pub.Title</td>
-            <td>@pub.ResponsibleCode.Code</td>
-            <td>@pub.AlphaDescriptor.Code</td>
-            <td>@pub.DateEntered</td>
-        </tr>
-    }
-  </tbody>
-</table>
-
-@Html.PagedListPager((IPagedList)Model._publicationList, page => Url.Action(null, new {pageNumber = page}),
-  new X.PagedList.Web.Common.PagedListRenderOptions()
-  {
-    LiElementClasses = new string[] { "page-item" },
-    PageClasses = new string[] { "page-link" },
-    Display = PagedListDisplayMode.IfNeeded
-
-  }
+        columns.Add(model => model.DocumentId).Titled("Pub Number").RenderedAs(model => $"<a href='/Publication?id={model.DocumentId}'>{model.DocumentId}</a>").Encoded(false);
+        columns.Add(model => model.Title).Titled("Title");
+        columns.Add(model => model.ResponsibleCode.Code).Titled("Resp. Code");
+        columns.Add(model => model.AlphaDescriptor.Code).Titled("A Descriptor");
+    })
+    .Using(GridFilterMode.Header)
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
 )
+</div>
