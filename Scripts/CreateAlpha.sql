@@ -20,6 +20,7 @@ INSERT INTO [dbo].[AlphaDescriptors]([Code],[Description]) VALUES('V', 'Video')
 INSERT INTO [dbo].[AlphaDescriptors]([Code],[Description]) VALUES('X', 'Internal Use Only (not intended for public viewing)')
 INSERT INTO [dbo].[AlphaDescriptors]([Code],[Description]) VALUES('Y', 'Revised Republished Version')
 INSERT INTO [dbo].[AlphaDescriptors]([Code],[Description]) VALUES('Z', 'Federal Register')
+INSERT INTO [dbo].[AlphaDescriptors]([Code],[Description]) VALUES('?', 'No Value')
 GO
 
 

@@ -3,6 +3,9 @@
 <div class="text-center" style="padding-bottom: 30px;">
     <div class="alert alert-secondary" role="alert"><h5 class="mb-1">@Model._publication.DocumentId</h5></div>
 </div>
+<div class="text-center" style="padding-bottom: 30px;">
+    <a href="~/Edit?id=@Model._publication.DocumentId">Edit</a>
+</div>
 <div class="list-group">
     <div class="list-group-item list-group-item-action flex-column align-items-start">
         <p class="mb-1"><label asp-for="@Model._publication.Title"></label></p>
