@@ -14,8 +14,8 @@
     {
         columns.Add(model => model.DocumentId).Titled("Pub Number").RenderedAs(model => $"<a href='/Publication?id={model.DocumentId}'>{model.DocumentId}</a>").Encoded(false);
         columns.Add(model => model.Title).Titled("Title");
-        columns.Add(model => model.ResponsibleCode.Code).Titled("Resp. Code");
-        columns.Add(model => model.AlphaDescriptor.Code).Titled("A Descriptor");
+        columns.Add(model => model.PointOfContactName).Titled("Name");
+        columns.Add(model => model.PointOfContactOrganization).Titled("Organization");
     })
     .Using(GridFilterMode.Header)
     .Empty("No data found")
