@@ -4,6 +4,7 @@ namespace PublicationTracking.Data;
 public class Publication
 {
     public int Id { get; set; }
+    [Display(Name = "Publication Id")]
     public string DocumentId { get; set; }
     public ResponsibleCode ResponsibleCode { get; set; }
     public AlphaDescriptor AlphaDescriptor { get; set; }

@@ -34,9 +34,19 @@
         </div>
     </div> 
     <h3>Publication Information</h3>
-    <div class="mb-3 col">
-        <label asp-for="@Model.Publication.Title" for="titleInput" class="form-label"></label>
-        <input asp-for="@Model.Publication.Title" type="text" class="form-control" id="titleInput"></input>
+    <div class="row">
+        <div class="mb-3 col">
+            <label asp-for="@Model.Publication.DocumentId" for="documentIdInput" class="form-label"></label>
+            <input asp-for="@Model.Publication.DocumentId" type="text" class="form-control" id="titleInput"></input>
+            Note: If no Publication Id is entered, one will be generated for you.
+        </div>
+        <div class="mb-3 col"></div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label asp-for="@Model.Publication.Title" for="titleInput" class="form-label"></label>
+            <input asp-for="@Model.Publication.Title" type="text" class="form-control" id="titleInput"></input>
+        </div>
     </div>
     <div class="row">
         <div class="mb-3 col">

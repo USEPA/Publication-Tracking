@@ -42,22 +42,34 @@ public class IndexModel : PageModel
             Publication.OriginalId = null;
         }
 
-        // Now that the form is filled out, we can generate a publication Id.
-        // In order to generate a publication Id, we need to combine some of the fields.
-        // Responsible Code + Alpha Descriptor + 2 Digit Year of Expected Publication Date + Count
-        // So Lets generate the first part..
-        var pubDate = Request.Form["Publication.ExpectedPublicationDate"].ToString();
+        var publicationId = string.Empty;
+        var pubDate = Request.Form["Publication.ExpectedPublicationDate"];
         var expectedPubDate = DateTime.Parse(pubDate);
-        var pubId = String.Format($"{Request.Form["Publication.ResponsibleCode"]}{Request.Form["Publication.AlphaDescriptor"]}{expectedPubDate.ToString("yy")}");
 
-        // Now, lets go to the database, and see how many of these already exist.
-        var pubCount = _publicationService.GetPublicationCount(pubId) + 1;
+        // Lets check to see if the user already has a publication, and if so, we don't need to generate one.
+        if(string.IsNullOrEmpty(Request.Form["Publication.DocumentId"]))
+        {
+            // Now that the form is filled out, we can generate a publication Id.
+            // In order to generate a publication Id, we need to combine some of the fields.
+            // Responsible Code + Alpha Descriptor + 2 Digit Year of Expected Publication Date + Count
+            // So Lets generate the first part..
+            var pubId = String.Format($"{Request.Form["Publication.ResponsibleCode"]}{Request.Form["Publication.AlphaDescriptor"]}{expectedPubDate.ToString("yy")}");
 
-        // So, lets make that into a number we can add to the end.
-        string pubIdCount = $"{pubCount:000}";
+            // Now, lets go to the database, and see how many of these already exist.
+            var pubCount = _publicationService.GetPublicationCount(pubId) + 1;
 
-        // Here is the final pub number!
-        var publicationId = $"{pubId}{pubIdCount}";
+            // So, lets make that into a number we can add to the end.
+            string pubIdCount = $"{pubCount:000}";
+
+            // Here is the final pub number!
+            publicationId = $"{pubId}{pubIdCount}";
+        }
+        else
+        {
+            // If the user already has a publication id, we can just use that.
+            publicationId = Request.Form["Publication.DocumentId"];
+        }
+        
 
         // With this in hand, we can now update the publication.
         Publication.DocumentId = publicationId;

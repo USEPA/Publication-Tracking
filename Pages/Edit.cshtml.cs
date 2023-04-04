@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace PublicationTracking.Pages;
 
@@ -17,6 +18,8 @@ public class EditModel : PageModel
     public List<SelectListItem> ResponsibleCodes { get; set; }
     public List<SelectListItem> AlphaDescriptors { get; set; }
 
+    public string OriginalDocumentId { get; set; }
+
     public EditModel(ILogger<IndexModel> logger, Data.PublicationContext context, Services.PublicationServices publicationService)
     {
         _logger = logger;
@@ -27,7 +30,11 @@ public class EditModel : PageModel
     public void OnGet(string id)
     {
         ViewData["PublicationId"] = id;
-        Publication = _context.Publications.Where(p => p.DocumentId == id).FirstOrDefault();
+        OriginalDocumentId = id;
+        Publication = _context.Publications
+            .Include(p => p.AlphaDescriptor)
+            .Include(p => p.ResponsibleCode)
+            .Where(p => p.DocumentId == id).FirstOrDefault();
         AlphaDescriptors = _context.AlphaDescriptors.Select(a => new SelectListItem { Value = a.Code, Text = $"{a.Code} - {a.Description}" }).ToList();
         ResponsibleCodes = _context.ResponsibleCodes.Where(r => r.IsValid == true).Select(r => new SelectListItem { Value = r.Code, Text = $"{r.Code} - {r.Organization}" }).ToList();
     }
@@ -35,10 +42,17 @@ public class EditModel : PageModel
     public IActionResult OnPost()
     {
         // First, we need to get the document id, and look up the existing publication.
-        var docId = Request.Form["Publication.DocumentId"].ToString();
+        var docId = Request.Form["OriginalDocumentId"].ToString();
         var pub = _context.Publications.Where(p => p.DocumentId == docId).FirstOrDefault();
 
         // Now, we need to update the publication with the new values.
+        // did the id change?
+        if (pub.DocumentId != Request.Form["Publication.DocumentId"].ToString())
+        {
+            // yes, so we need to update the document id, and the url.
+            pub.DocumentId = Request.Form["Publication.DocumentId"].ToString();
+        }
+
         pub.PointOfContactName = Request.Form["Publication.PointOfContactName"].ToString();
         pub.PointOfContactEmail = Request.Form["Publication.PointOfContactEmail"].ToString();
         pub.PointOfContactOrganization = Request.Form["Publication.PointOfContactOrganization"].ToString();
