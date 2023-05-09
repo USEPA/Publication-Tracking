@@ -119,3 +119,10 @@
         <input type="submit" class="btn btn-primary"></input>
     </div>
 }
+@using (Html.BeginForm("Delete", "Delete", FormMethod.Post))
+{
+    <div class="border border-danger" style="width: 100%; padding: 15px;">
+        <button asp-page-handler="Delete" class="btn btn-danger" asp-route-id="@Model.OriginalDocumentId" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</button>  
+        <div>Warning, this will delete the publication and all associated data. There is no undo.</div>
+    </div>
+}
