@@ -14,5 +14,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     <PackageReference Include="NonFactors.Grid.Mvc6" Version="7.2.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.7.0-develop00365" />
   </ItemGroup>
 </Project>

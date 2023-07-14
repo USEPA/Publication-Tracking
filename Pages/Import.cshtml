@@ -1,0 +1,57 @@
+@page
+@model ImportModel
+
+<div class="text-center" style="padding-bottom: 30px;">
+    <div class="alert alert-secondary" role="alert">Use this form to import publications to the database.</div>
+</div>
+
+
+<div>
+  @using (Html.BeginForm("ImportData", "Import", FormMethod.Post, new { enctype = "multipart/form-data" }))
+  {
+    <div style="margin-left: 20vw; margin-right: 20vw;" class="text-center">
+        <div class="form-group">
+            <input type="file" id="file" name="file" style="width:20vw;">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+  }
+</div>
+
+<div class="text-center" style="padding-top: 30px;">
+    @if(Model.importResults.Count() > 0)
+    {
+        <div class="alert alert-success" role="alert">Imported @Model.importResults.Count publications.</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Document Id</th>
+                    <th scope="col">Is Success</th>
+                    <th scope="col">Error Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var result in Model.importResults)
+                {
+                  if(result.IsSuccess == false)
+                  {
+                    <tr class="table-danger">
+                      <td>@result.DocumentId</td>
+                        <td>@result.IsSuccess</td>
+                        <td>@result.ErrorMessage</td>
+                    </tr>
+                  }
+                  else{
+                    <tr class="table-success">
+                      <td>@result.DocumentId</td>
+                        <td>@result.IsSuccess</td>
+                        <td>@result.ErrorMessage</td>
+                    </tr>
+                  }
+                }
+            </tbody>
+        </table>
+    }
+</div>

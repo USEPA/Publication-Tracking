@@ -74,11 +74,10 @@ public class EditModel : PageModel
         return RedirectToPage("Index");
     }
 
-    public IActionResult OnPostDelete(int id)  
+    public IActionResult OnPostDelete(string id)  
     {  
         // First, we need to get the document id, and look up the existing publication.
-        var docId = Request.Form["OriginalDocumentId"].ToString();
-        var pub = _context.Publications.Where(p => p.DocumentId == docId).FirstOrDefault();
+        var pub = _context.Publications.Where(p => p.DocumentId == id).FirstOrDefault();
 
         _context.Publications.Remove(pub);
         _context.SaveChanges();
