@@ -24,18 +24,15 @@ public class Publication
     public Data.Language? Language { get; set; }
     public DateTime? DateRequested { get; set; }
 
-    [Required]
     [Display(Name = "Requestor Name")]
     public string? PointOfContactName { get; set; }
     [Display(Name = "Requestor Orginization")]
     public string? PointOfContactOrganization { get; set; }
 
-    [Required]
     [Phone]
     [Display(Name = "Requestor Phone Number")]
-    public string PointOfContactPhoneNumber { get; set; }
+    public string? PointOfContactPhoneNumber { get; set; }
 
-    [Required]
     [EmailAddress]
     [Display(Name = "Email Address")]
     public string? PointOfContactEmail { get; set; }
@@ -49,8 +46,8 @@ public class Publication
     public string? Revision { get; set; }
 
     [Display(Name = "When will the document be available?")]
-    public DateTime ExpectedPublicationDate { get; set; }
-    public DateTime DateEntered { get; set; }
+    public DateTime? ExpectedPublicationDate { get; set; }
+    public DateTime DateEntered { get; set; } = DateTime.Now;
     public string? EnteredBy { get; set; }
-    public DateTime DateLastModified { get; set; }
+    public DateTime DateLastModified { get; set; } = DateTime.Now;
 }

@@ -21,7 +21,6 @@ public class ImportModel : PageModel
     {
         _logger = logger;
         _context = context;
-        publications = new();
         importResults = new();
     }
 
@@ -78,12 +77,20 @@ public class ImportModel : PageModel
                             //p.Revision = row.ItemArray[21]?.ToString();
                             //p.ExpectedPublicationDate = DateTime.Parse(row.ItemArray[22].ToString());
                             //p.DateEntered = DateTime.Parse(row.ItemArray[22].ToString());
-                            //p.EnteredBy = row.ItemArray[24].ToString();
+                            p.EnteredBy = "Imported";
 
-                            publications.Add(p);
-                            importResults.Add(new Data.ImportResults { DocumentId = p.DocumentId, IsSuccess = true });
-
-                            Console.WriteLine(p.DocumentId);
+                            try
+                            {
+                                _context.Publications.Add(p);
+                                await _context.SaveChangesAsync();
+                                importResults.Add(new Data.ImportResults { DocumentId = p.DocumentId, IsSuccess = true });
+                            }
+                            catch (Exception ex)
+                            {
+                                importResults.Add(new Data.ImportResults { DocumentId = p.DocumentId, IsSuccess = false, ErrorMessage = $"Error saving to database. {ex.InnerException}" });
+                            }                          
+                            
+                            _logger.LogTrace(p.DocumentId);
                         }
                     }
                     
@@ -93,7 +100,6 @@ public class ImportModel : PageModel
 
         }
 
-        //return RedirectToPage("/ImportResults", new { iResults = importResults });
         return CreateResult(importResults);
     }
 
